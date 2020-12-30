@@ -5,8 +5,169 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New year card</title>
     <link rel="stylesheet" href="./src/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <meta property="og:url" content="http://DhanachDev.github.io/pandara" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="แสงสว่างนำชีวิตในปีใหม่นี้ของท่านคือ..." />
+    <meta property="og:description" content="รับข้อคิดธรรมะจากมูลนิธิพันดารา เพื่อความเป็นสิริมงคลปี 2564" />
+    <meta property="og:image" content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
+    <style>
+        ._card-wrapper {
+            display: block;
+            text-align: center;
+            padding: 50px;
+        }
+        ._btn {
+            padding: 20px;
+            min-width: 200px;
+            font-size: 30px;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            background: gray;
+            outline: none;
+            cursor: pointer;
+        }
+
+        ._card > img {
+            height: 300px;
+        }
+
+        .lds-heart {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  transform: rotate(45deg);
+  transform-origin: 40px 40px;
+}
+.lds-heart div {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: #fbf5d4;
+  animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.lds-heart div:after,
+.lds-heart div:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: #fbf5d4;
+}
+.lds-heart div:before {
+  left: -42px;
+  border-radius: 50% 0 0 50%;
+}
+.lds-heart div:after {
+  top: -42px;
+  border-radius: 50% 50% 0 0;
+}
+@keyframes lds-heart {
+  0% {
+    transform: scale(0.95);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  39% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+._card {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: #8E896F;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#result {
+    height: auto;
+    width: 90%;
+    background-color: white;
+    z-index: 5;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+}
+._fade-in {
+    transition: all 200ms;
+    opacity: .6 !important;
+    visibility: visible !important;
+}
+
+._fade-in-100 {
+    transition: all 500ms;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.facebook-share {
+  background: #fff;
+  color: rgb(87, 207, 244);
+  cursor: pointer;
+  display: inline-block;
+  padding: 1em 2em;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+}
+
+    </style>
 </head>
 <body>
+    <div id="overlay"></div>
+    <div id="result">
+        <div class="box"> 
+            hello
+            <!-- <button class="_btn">
+                SAVE
+            </button>
+            <button class="_btn">
+                Share
+            </button>
+            <button class="_btn">
+                เริ่มใหม่
+            </button> -->
+            <span class="facebook-share" data-js="facebook-share" onclick="share()">Share on Facebook</span>
+        </div>
+    </div>
     <div class="head_qoate">
         <div class="_logo">
             <img src="./images/logo.png" alt="">
@@ -15,9 +176,35 @@
             <h1>แสงสว่างนำชีวิตในปีใหม่นี้ของท่านคือ...</h1>
         </div>
     </div>
+    
+    <div class="_card-wrapper">
+        <div class="_card">
+            <img src="./images/card.png" alt="">
+            <!-- <div class="lds-heart"><div></div></div> -->
+        </div>
+        <button class="_btn" onclick="openResult()">
+            กดรับข้อธรรม
+        </button>
+    </div>
 
     <script>
+        function openResult() {
+            let overlay = document.getElementById('overlay');
+            let result = document.getElementById('result');
+            overlay.classList.add('_fade-in');
+            result.classList.add('_fade-in-100');
+        }
 
+        function share () {
+            var facebookShare = document.querySelector('[data-js="facebook-share"]');
+
+            facebookShare.onclick = function(e) {
+            e.preventDefault();
+            var facebookWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + document.URL, 'facebook-popup', 'height=350,width=600');
+            if(facebookWindow.focus) { facebookWindow.focus(); }
+                return false;
+            }
+        }
     </script>
 </body>
 </html>
