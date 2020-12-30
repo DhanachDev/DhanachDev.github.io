@@ -44,9 +44,12 @@
 }
 .lds-heart div {
   position: absolute;
+  top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   width: 80px;
   height: 80px;
-  background: #fbf5d4;
+  background: #faeda8;
   animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .lds-heart div:after,
@@ -56,7 +59,7 @@
     display: block;
     width: 80px;
     height: 80px;
-    background: #fbf5d4;
+    background: #faeda8;
 }
 .lds-heart div:before {
   left: -42px;
@@ -108,6 +111,7 @@
 #result {
     height: auto;
     width: 90%;
+    border-radius: 25px;
     background-color: white;
     z-index: 5;
     position: fixed;
@@ -130,7 +134,7 @@
 }
 
 .box {
-    background-color: white;
+    background-color: #FDF7DA;
     border-radius: 10px;
     padding: 35px;
     display: flex;
@@ -149,23 +153,47 @@
   border-radius: 6px;
 }
 
+._btn-2 {
+    padding: 5px 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: gray;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+        }
+
+        ._top > h3 {
+            text-align: center;
+            color: #8E896F;
+        }
+
+        ._loading {
+            position: relative;
+            display: block;
+            height: 200px;
+        }
     </style>
 </head>
 <body>
     <div id="overlay"></div>
     <div id="result">
         <div class="box"> 
-            hello
-            <!-- <button class="_btn">
-                SAVE
-            </button>
-            <button class="_btn">
-                Share
-            </button>
-            <button class="_btn">
-                เริ่มใหม่
-            </button> -->
-            <span class="facebook-share" data-js="facebook-share" onclick="share()">Share on Facebook</span>
+            <div class="_top">
+                <h3>
+                    แสงสว่างนำชีวิตในปีใหม่นี้ของท่านคือ...
+                </h3>
+            </div>
+            <div class="_loading">
+                <div class="lds-heart"><div></div></div>
+            </div>
+            <div class="_btn-wrapper">
+                <div class="_btn-2" onclick="">บันทึกภาพ</div>
+                <div class="_btn-2" data-js="facebook-share" onclick="share()">แบ่งปัน</div>
+                <div class="_btn-2" onclick="">เริ่มใหม่</div>
+            </div>
         </div>
     </div>
     <div class="head_qoate">
