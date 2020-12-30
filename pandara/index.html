@@ -9,10 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
     <meta property="og:url" content="http://DhanachDev.github.io/pandara" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="แสงสว่างนำชีวิตในปีใหม่นี้ของท่านคือ..." />
+    <meta property="og:title" content="การ์ดธรรมะ แสงสว่างนำชีวิตในปีใหม่" />
     <meta property="og:description" content="รับข้อคิดธรรมะจากมูลนิธิพันดารา เพื่อความเป็นสิริมงคลปี 2564" />
     <meta property="og:image" content="https://dhanachdev.github.io/pandara/src/images/thumbnail.png" />
-    <meta name="description" content="มูลนิธิพันดารา, thousands, stars, pandara, ทิเบต, เกซัง, ตาวา, kalsangdawa, ขทิรวัน, kundrolling, kundrol, ling, แสงสว่างนำชีวิต, ปีใหม่, ข้อคิดธรรมะ, ธรรมะ, สงบสุข, จิต, วัชรยาน, ธรรมชาติ, new, year, happy, สิริมงคล">
+    <meta name="description" content="รับข้อคิดธรรมะจากมูลนิธิพันดารา เพื่อความเป็นสิริมงคลต้อนรับปีใหม่ 2564">
+    <meta name="keywords" content="มูลนิธิพันดารา, thousands, stars, pandara, ทิเบต, เกซัง, ตาวา, kalsangdawa, ขทิรวัน, kundrolling, kundrol, ling, แสงสว่างนำชีวิต, ปีใหม่, ข้อคิดธรรมะ, ธรรมะ, สงบสุข, จิต, วัชรยาน, ธรรมชาติ, new, year, happy, สิริมงคล">
+    <script src="./src/script.js"></script>
 </head>
 <body>
     <div id="overlay"></div>
@@ -59,69 +61,5 @@
             กดรับข้อธรรม
         </button>
     </div>
-
-    <script>
-        function openResult() {
-            let loading = document.getElementById('loading');
-            let overlay = document.getElementById('overlay');
-            let result = document.getElementById('result');
-            let btnWrp = document.getElementById("btnWrapper");
-            let desc = document.getElementById('text');
-            let picture = document.getElementById('picture');
-            let topic = document.getElementById('topic');
-
-            loading.style.display = 'inline-block';
-            overlay.classList.add('_fade-in');
-            result.classList.add('_fade-in-100');
-            desc.innerHTML = '';
-            picture.innerHTML = '';
-
-            setTimeout(() => {
-                btnWrp.style.display = 'flex';
-                loading.style.display = 'none';
-                desc.innerHTML = this.desc[0];
-                picture.innerHTML = `<img src="./src/images/72.jpg" alt="">`;
-                topic.innerHTML = 'แสงสว่างนำชีวิตในปีใหม่นี้ของท่านคือ...';
-            }, 2000);
-        }
-
-        function resetApp() {
-            let loading = document.getElementById('loading');
-            let overlay = document.getElementById('overlay');
-            let result = document.getElementById('result');
-            let btnWrp = document.getElementById("btnWrapper");
-            let desc = document.getElementById('text');
-            let picture = document.getElementById('picture');
-
-            loading.style.display = 'inline-block';
-            overlay.classList.remove('_fade-in');
-            result.classList.remove('_fade-in-100');
-            desc.innerHTML = '';
-            picture.innerHTML = '';
-            btnWrp.style.display = 'none';
-        }
-
-        function share () {
-            var facebookShare = document.querySelector('[data-js="facebook-share"]');
-
-            facebookShare.onclick = function(e) {
-            e.preventDefault();
-            var facebookWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + document.URL, 'facebook-popup', 'height=350,width=600');
-            if(facebookWindow.focus) { facebookWindow.focus(); }
-                return false;
-            }
-        }
-
-        function savepic () {
-            window.open('https://dhanachdev.github.io/pandara/src/images/10.jpg');
-        }
-        var index = 1;
-        var desc = [
-            `<span class="_desc">ข้อธรรม 1 "ศีล คือ ใจ"<br>
-การบังคับกาย หรือ วาจา ไม่สำคัญเท่า
-การที่เราถือศีล นั้นทำให้ใจเราเป็นสุข</span>
-- อ.กฤษดาวรรณ (เกซัง ตาวา) -`
-        ]
-    </script>
 </body>
 </html>
