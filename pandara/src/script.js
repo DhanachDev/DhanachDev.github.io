@@ -598,5 +598,10 @@ Instead of searching to find the teacher’s faults, look inside your mind to fi
 เมื่อมองดู จะเห็นว่า บุคคลที่กำลังโกรธ
 (ซึ่งก็คือตัวเรา หรือกล่าวให้เฉพาะเจาะจงคือจิตของเรา)
 มิได้มีอยู่ คงเหลือเพียงความว่างอันเป็นสภาวะโดยเนื้อแท้⁣</div>
+- อ.กฤษดาวรรณ (เกซัง ตาวา) -`,
+
+`<div class="_desc">ข้อธรรม 72 ขอให้ความรักนำพาชีวิตเราในปีใหม่นี้ นำเราไปสู่การเห็นคุณค่าของกันและกัน สู่การปกป้องชีวิตที่ช่วยเหลือตัวเองไม่ได้ ขอให้ความรักเชื่อมใจเราไว้และทลายกำแพงแห่งการแบ่งแยกจนหมดสิ้น⁣
+⁣
+May the new year be filled with pure love, which leads us to embrace others and protect the vulnerable. May love connect us and destroy the wall of separation totally!⁣⁣</div>
 - อ.กฤษดาวรรณ (เกซัง ตาวา) -`
 ];
