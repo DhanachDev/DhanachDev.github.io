@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New year card</title>
+    <title>การ์ดธรรมะ แสงสว่างนำชีวิตในปีใหม่</title>
     <link rel="stylesheet" href="./src/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
         ._card-wrapper {
             display: block;
             text-align: center;
-            padding: 50px;
+            padding: 30px 50px;
         }
         ._btn {
             padding: 20px;
@@ -31,7 +31,7 @@
         }
 
         ._card > img {
-            height: 300px;
+            height: 250px;
         }
 
         .lds-heart {
@@ -91,10 +91,11 @@
 }
 
 ._card {
-    height: 300px;
+    height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
 }
 
 
@@ -135,10 +136,11 @@
 
 .box {
     background-color: #FDF7DA;
+    background-image: url('./src/images/bg-result.png');
+    background-size: cover;
     border-radius: 10px;
     padding: 35px;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
 }
@@ -152,7 +154,9 @@
   -webkit-border-radius: 6px;
   border-radius: 6px;
 }
-
+._btn-wrapper {
+    display: none;
+}
 ._btn-2 {
     padding: 5px 15px;
     font-size: 20px;
@@ -163,11 +167,14 @@
     outline: none;
     text-align: center;
     cursor: pointer;
+    margin-right: 10px;
         }
 
         ._top > h3 {
             text-align: center;
             color: #8E896F;
+            font-size: 35px;
+            margin: 0;
         }
 
         ._loading {
@@ -175,39 +182,98 @@
             display: block;
             height: 200px;
         }
+
+        ._desc {
+            font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+        }
+
+        .desc-wrap {
+            display: flex;
+            max-width: 1000px;
+            padding: 35px 0;
+        }
+
+        .pic {
+            flex: .5;
+            z-index: 5;
+            transition: all 300ms;
+        }
+
+        #text {
+            flex: 1;
+            padding-left: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .desc-wrap > .pic > img {
+            width: 100%;
+
+        }
+
+        /* ._bg {
+            
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            z-index: 4;
+        } */
+
+        ._top, ._loading, ._btn-wrapper, ._desc {
+            z-index: 5;
+        }
     </style>
 </head>
 <body>
     <div id="overlay"></div>
     <div id="result">
         <div class="box"> 
+            <div class="_bg">
+
+            </div>
             <div class="_top">
-                <h3>
+                <h3 id="topic">
                     แสงสว่างนำชีวิตในปีใหม่นี้ของท่านคือ...
                 </h3>
             </div>
-            <div class="_loading">
+            <div class="_loading" id="loading">
                 <div class="lds-heart"><div></div></div>
             </div>
-            <div class="_btn-wrapper">
-                <div class="_btn-2" onclick="">บันทึกภาพ</div>
-                <div class="_btn-2" data-js="facebook-share" onclick="share()">แบ่งปัน</div>
-                <div class="_btn-2" onclick="">เริ่มใหม่</div>
+            <div class="desc-wrap">
+                <div class="pic" id="picture">
+                    
+                </div>
+                <div id="text">
+
+                </div>
+            </div>
+            <div class="_btn-wrapper" id="btnWrapper">
+                <div class="_btn-2" onclick="savepic()">บันทึกภาพ</div>
+                <div class="_btn-2" data-js="facebook-share" style="background-color: #1a83de;" onclick="share()">แบ่งปัน</div>
+                <div class="_btn-2" onclick="resetApp()">เริ่มใหม่</div>
             </div>
         </div>
     </div>
     <div class="head_qoate">
         <div class="_logo">
-            <img src="./images/logo.png" alt="">
+            <img src="./src/images/logo.png" alt="">
         </div>
         <div class="_qaote">
-            <h1>แสงสว่างนำชีวิตในปีใหม่นี้ของท่านคือ...</h1>
+            <h1>การ์ดธรรมะ แสงสว่างนำชีวิตในปีใหม่</h1>
         </div>
     </div>
     
     <div class="_card-wrapper">
         <div class="_card">
-            <img src="./images/card.png" alt="">
+            <img src="./src/images/card.png" alt="">
             <!-- <div class="lds-heart"><div></div></div> -->
         </div>
         <button class="_btn" onclick="openResult()">
@@ -217,10 +283,43 @@
 
     <script>
         function openResult() {
+            let loading = document.getElementById('loading');
             let overlay = document.getElementById('overlay');
             let result = document.getElementById('result');
+            let btnWrp = document.getElementById("btnWrapper");
+            let desc = document.getElementById('text');
+            let picture = document.getElementById('picture');
+            let topic = document.getElementById('topic');
+
+            loading.style.display = 'inline-block';
             overlay.classList.add('_fade-in');
             result.classList.add('_fade-in-100');
+            desc.innerHTML = '';
+            picture.innerHTML = '';
+
+            setTimeout(() => {
+                btnWrp.style.display = 'flex';
+                loading.style.display = 'none';
+                desc.innerHTML = this.desc[0];
+                picture.innerHTML = `<img src="./src/images/72.jpg" alt="">`;
+                topic.innerHTML = 'แสงสว่างนำชีวิตในปีใหม่นี้ของท่านคือ...';
+            }, 2000);
+        }
+
+        function resetApp() {
+            let loading = document.getElementById('loading');
+            let overlay = document.getElementById('overlay');
+            let result = document.getElementById('result');
+            let btnWrp = document.getElementById("btnWrapper");
+            let desc = document.getElementById('text');
+            let picture = document.getElementById('picture');
+
+            loading.style.display = 'inline-block';
+            overlay.classList.remove('_fade-in');
+            result.classList.remove('_fade-in-100');
+            desc.innerHTML = '';
+            picture.innerHTML = '';
+            btnWrp.style.display = 'none';
         }
 
         function share () {
@@ -233,6 +332,17 @@
                 return false;
             }
         }
+
+        function savepic () {
+            window.open('https://dhanachdev.github.io/pandara/src/images/10.jpg');
+        }
+        var index = 1;
+        var desc = [
+            `<span class="_desc">ข้อธรรม 1 "ศีล คือ ใจ"<br>
+การบังคับกาย หรือ วาจา ไม่สำคัญเท่า
+การที่เราถือศีล นั้นทำให้ใจเราเป็นสุข</span>
+- อ.กฤษดาวรรณ (เกซัง ตาวา) -`
+        ]
     </script>
 </body>
 </html>
