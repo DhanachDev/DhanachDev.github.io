@@ -6,7 +6,6 @@ function openResult() {
     let desc = document.getElementById('text');
     let picture = document.getElementById('picture');
     let topic = document.getElementById('topic');
-    let act = document.getElementById('formAc');
 
     loading.style.display = 'inline-block';
     overlay.classList.add('_fade-in');
@@ -22,7 +21,6 @@ function openResult() {
         loading.style.display = 'none';
         desc.innerHTML = this.desc[index-1];
         let urlImg = './src/images/' + index + '.png';
-        document.myform.action = 'https://dhanachdev.github.io/pandara/src/images/thumbnail.png';
         picture.innerHTML = `<img src="` + urlImg + `" alt="">`;
         topic.innerHTML = 'แสงสว่างนำชีวิตในปีใหม่นี้ของท่านคือ...';
     }, 5000);
